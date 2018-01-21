@@ -52,7 +52,7 @@ public class characterController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space) && isGrounded )
         {
             // rb.AddForce(transform.up * thrust, ForceMode.Impulse);
-
+            //jimmy x boris fanfics
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             
             isGrounded = false;
