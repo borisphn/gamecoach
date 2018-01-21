@@ -7,14 +7,25 @@ public class characterController : MonoBehaviour {
     CharacterController controller;
     public Rigidbody rb;
     public float thrust = 4f;
-
+   
+    public float jumpForce = 4.0f;
+    public bool isGrounded;
     public GameObject sphere;
+    public Vector3 jump;
+    public Vector3 down;
+
     // Use this for initialization
     void Start () {
         speed = 2.0f;
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+        down = new Vector3(0.0f, -2.0f, 0.0f);
+    }
 
+    void OnCollisionStay()
+    {
+        isGrounded = true;
     }
 
     // Update is called once per frame
@@ -38,9 +49,13 @@ public class characterController : MonoBehaviour {
         }
         
         //jumping
-        if (Input.GetKey(KeyCode.Space) )
+        if (Input.GetKey(KeyCode.Space) && isGrounded )
         {
-            rb.AddForce(transform.up * thrust, ForceMode.Impulse);
+            // rb.AddForce(transform.up * thrust, ForceMode.Impulse);
+
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            
+            isGrounded = false;
         }
         
 
