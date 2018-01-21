@@ -8,7 +8,7 @@ public class characterController : MonoBehaviour {
     public Rigidbody rb;
     public float thrust = 4f;
    
-    public float jumpForce = 4.0f;
+    public float jumpForce = 2.0f;
     public bool isGrounded;
     public GameObject sphere;
     public Vector3 jump;
